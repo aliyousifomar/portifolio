@@ -54,41 +54,28 @@
               <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="#"> Twitter </a>
                 <a class="nav-item nav-link" href="#"> Resume </a>
-                <a class="nav-item nav-link" href="#"> Blog </a>
+                <a class="nav-item nav-link active" href="#"> Blog </a>
               </div>
             </div>
           </nav>
     </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
     <div class="container">
-      <h1>Hi I'm Ali </h1>
-      <p class="lead text-muted"> Hey! My name is Ali and I am a fullstack developer, and formerly a network and telecoms engineer</p>
-      <p>
-        <a href="mailto:ali.omar@umbrellanetworks.net" class="btn btn-primary my-2">Email me</a>
-      </p>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-          <!-- Adding a for loop to include all the jobs from jobs model/database-->
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}"> </img>
-            <div class="card-body">
-              <p class="card-text">{{ job.summary}}</p>
-            </div>
-          </div>
-        </div>
+        <h1 class="text-center pt-3"> Welcome to Ali's Blog</h1>
+        <br />
+        <br />
+        <h2>Latest posts</h2>
+        <hr />
+        {% for blog in blogs.all %}
+           <a href="" ><h3 > {{ blog.title}}</h3></a>
+           {{blog.pub_date_pretty}}
+            <br />
+            <img class="img-fluid" src="{{ blog.image.url}}" height="200" width="200">
+            <br />
+            <p> {{ blog.summary }} </p>
         {% endfor %}
     </div>
-  </div>
-
 </main>
 
 <footer class="text-muted">
